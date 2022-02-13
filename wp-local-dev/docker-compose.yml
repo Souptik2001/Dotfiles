@@ -1,19 +1,29 @@
 version: "3.9"
     
 services:
+  # Database
   db:
     image: mysql:latest
     # volumes:
     #   - /run/media/souptik/Data/wordpress-db-backup:/var/lib/mysql
-    ports:
-      - "8001:3306"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
-    
+  # PhpMyAdmin
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8001:80'
+    environment:
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=wordpress
+  # Wordpress
   wordpress:
     depends_on:
       - db
