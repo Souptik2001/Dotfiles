@@ -5,6 +5,8 @@ services:
     image: mysql:latest
     # volumes:
     #   - /run/media/souptik/Data/wordpress-db-backup:/var/lib/mysql
+    ports:
+      - "8001:3306"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
