@@ -118,7 +118,15 @@ fi
 # fortune | cowsay -f apt | lolcat --freq=0.3
 # fortune | cowsay -f daemon | lolcat --freq=0.3
 # SET ENVIRONMENT VARIABLES HERE
-export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin
+
+# export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions'
+
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+
+export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin:$ANDROID_SDK_ROOT/tools/bin
 export EDITOR=vim
 
 export NVM_DIR="$HOME/.nvm"
