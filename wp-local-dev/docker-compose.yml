@@ -1,11 +1,11 @@
 version: "3.9"
-    
+
 services:
   # Database
   db:
     image: mysql:latest
-    # volumes:
-    #   - /run/media/souptik/Data/wordpress-db-backup:/var/lib/mysql
+    volumes:
+      - wordpress_db_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
@@ -39,5 +39,4 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
 volumes:
-  db_data: {}
-  wordpress_data: {}
+  wordpress_db_data: {}
