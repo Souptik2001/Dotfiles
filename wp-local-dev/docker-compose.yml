@@ -29,7 +29,7 @@ services:
       - db
     build: ./wordpress
     volumes:
-      - /run/media/souptik/Data/wordpress-data-backup:/var/www/html
+      - </path/to/a/folder/which/will/have/complete/wp-data>:/var/www/html
     ports:
       - "80:80"
     restart: always
