@@ -1,0 +1,1 @@
+Install `gnome-keyring` using `pacman -S gnome-keyring`.
