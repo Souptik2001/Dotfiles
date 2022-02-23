@@ -29,9 +29,10 @@ services:
       - db
     build: ./wordpress
     volumes:
-      - </path/to/a/folder/which/will/have/complete/wp-data>:/var/www/html
+      - /run/media/souptik/Data/wordpress-data-backup:/var/www/html
     ports:
       - "80:80"
+      - "9003:9000"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
