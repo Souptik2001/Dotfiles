@@ -2,8 +2,8 @@
 
 ## Things that need more detailing:
 
-[] GPG key expiration.
-[] More errors are yet to be written.
+- [] GPG key expiration.
+- [] More errors are yet to be written.
 
 ## Setup GNUPG
 
@@ -84,3 +84,8 @@ And now in ideal case you should be done. But yes it worst case a series of erro
 - `"Access to the specified native messaging host is forbidden."`
   - In the Manifest file created during setting up gopass-jsonapi above, in the allowed origins write your chrome extension ID.
   - [Discussion](https://stackoverflow.com/questions/20216224/chrome-native-messaging-error-access-to-the-specified-native-messaging-host-i)
+- `"Failed to decrypt"`
+  - This happens because the GPG key needs to have the passpharse to use the private key.
+  - So, if the passphrase is not cached it is not able to take the passphrase input.
+- `"Copy to clipboard failed"`
+  - For that install the `xclip` command - `sudo pacman -S xclip`.
