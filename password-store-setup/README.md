@@ -1,5 +1,10 @@
 # Setup Password Manager🔑🔑
 
+## Things that need more detailing:
+
+[] GPG key expiration.
+[] More errors are yet to be written.
+
 ## Setup GNUPG
 
 - [Arch Linux GNUPG official documentation](https://wiki.archlinux.org/title/GnuPG)
@@ -40,7 +45,6 @@
   - [Checkout this discussion](https://unix.stackexchange.com/questions/60213/gpg-asks-for-password-even-with-passphrase)
 - Renew GPG keys:
   - [Renew GPG keys](https://gist.github.com/krisleech/760213ed287ea9da85521c7c9aac1df0)
-  - 
 
 ## Setup auto keys refresh
 
@@ -48,3 +52,35 @@
 
 - [Checkout this discussion](https://unix.stackexchange.com/questions/603682/bash-script-request-input-via-gui)
 - Install `zenity` package -> `sudo pacman -S zenity`
+
+## Setup Pass
+
+- For the CLI tool you can use either `pass` or `gopass`. I am personally going with `pass`.
+- [Official documentation of pass(Read it very carefully)](https://www.passwordstore.org/)
+- [Official documentation of gopass](https://www.gopass.pw/)
+- Ok so now the CLI tool has been installed. And hopefully you also got an idea of how to use the CLI tool to manage passwords.
+- The next part will be more clear to you if you know about how chrome extensions work. But no knowledge will also be completely ok to follow along.
+- Now we will need a bridge that communicates between the CLI and the extension. This is called `gopass-jsonapi`.
+- And the browser extension is called `gopassbridge`. Don't let the nomenclature confuse you.
+- First setup `gopass-jsonapi`.
+  - First install golang - `sudo pacman -S go`.
+  - ```bash
+    git clone https://github.com/gopasspw/gopass-jsonapi.git
+    cd gopass-jsonapi
+    make build
+    ./gopass-jsonapi help
+    ```
+- So this will basically create two files - Manifest File(`/home/souptik/.config/google-chrome/NativeMessagingHosts/com.justwatch.gopass.json`) and Wrapper Script(`/home/souptik/.config/gopass/gopass_wrapper.sh`).
+- Now download the `gopassbridge` and build it.
+ - Install node and npm and prettier `sudo npm -g i prettier`.
+ - ```bash
+   https://github.com/gopasspw/gopassbridge.git
+   ```
+
+And now in ideal case you should be done. But yes it worst case a series of errors will appear and you have to solve them one by one🧐.
+
+## Errors with gopassbridge and gopass-jsonapi
+
+- `"Access to the specified native messaging host is forbidden."`
+  - In the Manifest file created during setting up gopass-jsonapi above, in the allowed origins write your chrome extension ID.
+  - [Discussion](https://stackoverflow.com/questions/20216224/chrome-native-messaging-error-access-to-the-specified-native-messaging-host-i)
