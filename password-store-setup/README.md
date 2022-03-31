@@ -87,5 +87,22 @@ And now in ideal case you should be done. But yes it worst case a series of erro
 - `"Failed to decrypt"`
   - This happens because the GPG key needs to have the passpharse to use the private key.
   - So, if the passphrase is not cached it is not able to take the passphrase input.
+  - Ok, so understand the solution very carefully.
+  - So, basically you are interacting with the `gpg-agent` daemon to interact with the main gpg program. Now by default (i.e if you don't specify a `~/.gnupg/gpg-agent.conf` file) it uses the takes your passphrase in the terminal only(I don't remember the name exactly). But that is program is for some reason not so much usable by other programs. So, you need to provide a pin-entry program.
+  - In my arch (Endeveour OS) I already have a preinstalled pin-entry program called `pinentry-qt`🤯. But if you don't have you can install [it](https://archlinux.org/packages/core/x86_64/pinentry/) with `sudo pacman -S pinentry-qt`.
+  - Now we just need to tell `gpg-agent` to use this pin-entry program. And we can do this by entering this to our `~/.gnupg/gpg-agent.conf` file. Append this line in the file(if you don't have one then create):
+  ```conf
+  pinentry-program /abs/path/to/your/pinentry-program
+  ```
+  Or just execute this command:
+  ```bash
+  echo "pinentry-program $(which your_pinentry_program)" >> ~/.gnupg/gpg-agent.conf
+  ```
+  And then just kill the gpg-agent program:
+  ```bash
+  killall gpg-agent
+  ```
+  The `gpg-agent` will be started by the gopass-jsonapi itself you don't have to worry.
+
 - `"Copy to clipboard failed"`
   - For that install the `xclip` command - `sudo pacman -S xclip`.
