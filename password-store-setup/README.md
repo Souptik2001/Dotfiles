@@ -106,3 +106,16 @@ And now in ideal case you should be done. But yes it worst case a series of erro
 
 - `"Copy to clipboard failed"`
   - For that install the `xclip` command - `sudo pacman -S xclip`.
+
+## Backup your GPG keys properly📜
+
+- First export your public and private keys:
+  ```bash
+  gpg --output pass_private.key --armor --export-secret-keys souptikdatta2001@gmail.com
+  gpg --output pass_public.key --armor --export souptikdatta2001@gmail.com
+  ```
+- Now you have to convert these files into qr codes. But GPG keys are very large and even if you convert them into QR codes then they will be very fine and detailed and, when you will print them in paper. So, you need to split them into smaller files nad then convert each of them into QR codes.
+- We will first split the file using the `split` command.
+- Then we will convert the files in qr codes using the `qrencode` command.
+- If you don't want to manually run the commands I wrote a bash script which you can use like `./create_gpg_qr.sh <userID_or_email>`.
+- Same way you can also convert your ssh keys into QR codes using the other bash script `./create_ssh_qr.sh <key1> <key2>`.
