@@ -38,7 +38,7 @@ ZSH_THEME="fletcherm"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-DISABLE_UPDATE_PROMPT="true"
+# DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=2
@@ -127,6 +127,13 @@ export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
 
 export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin:$ANDROID_SDK_ROOT/tools/bin
+
+# TEMPORARY FOR NOW
+export PATH=$PATH:/home/souptik/wordpress/vip-go-cli/node_modules/.bin
+###################
+
+# export PATH="~/bin:$PATH"
+
 export EDITOR=vim
 
 export NVM_DIR="$HOME/.nvm"
