@@ -1,2 +1,3 @@
-First install PHP.
-Then run this install-composer file to install composer.
+- First install PHP.
+- Then run this install-composer file to install composer.
+  Basically this script downloads a php file. That PHP file when executed will download a PHAR file. A PHAR file is like a binary file which can be directly executed as a command. Then this PHAR file is moved to `/usr/bin` with the name `composer` so that we can run the file from anywhere in the terminal with the command `composer`. These all actions are performed by the script only you just have to run the file.
