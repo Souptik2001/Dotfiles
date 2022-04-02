@@ -1,4 +1,4 @@
-The entire PHPCS setup is already done in the `.config/composer` foler. You just have to add `~/.config/composer/vendor/bin/` in the PATH environment variable in `.zshrc` or `.bashrc`.
+The entire PHPCS setup is already done in the `.config/composer` folder. You just have to add `~/.config/composer/vendor/bin/` in the PATH environment variable in `.zshrc` or `.bashrc`.
 
 Better have Composer installed before installing PHPCS.
 
