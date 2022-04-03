@@ -11,8 +11,8 @@ rm -r ./gpg_qr_"$1"/private-gpg-splits
 rm -r ./gpg_qr_"$1"/public-gpg-splits
 mkdir ./gpg_qr_"$1"/private-gpg-splits
 mkdir ./gpg_qr_"$1"/public-gpg-splits
-split -C 1000 ./gpg_qr_"$1"/private.key ./gpg_qr_"$1"/private-gpg-splits/privatesplitkey-
-split -C 1000 ./gpg_qr_"$1"/public.key ./gpg_qr_"$1"/public-gpg-splits/publicsplitkey-
+split -C 500 ./gpg_qr_"$1"/private.key ./gpg_qr_"$1"/private-gpg-splits/privatesplitkey-
+split -C 500 ./gpg_qr_"$1"/public.key ./gpg_qr_"$1"/public-gpg-splits/publicsplitkey-
 
 ## Convert them into QR codes
 rm -r ./gpg_qr_"$1"/private-gpg-splits-qr
