@@ -132,5 +132,16 @@ And now in ideal case you should be done. But yes it worst case a series of erro
 - Ok now the keys are deleted.😥 Hopefully you took the backup before this. Please say you did.🤯
 - Now let's restore the backup.
 - Again simple two commands - `gpg --import [path_to_public_key]` and `gpg --import [path_to_private_key]`.
+- But importing the public key is not enough. You might get an error saying = `unusable public key`.
 
 [This article is very helpful demonstrating exporting and importing public and private keys.](https://linuxhint.com/export-import-keys-with-gpg/)
+
+
+## Migrating passwords from chrome to password-store
+
+- This is your [helper](https://github.com/roddhjav/pass-import).
+- Ok, let me explain now.
+- Basically this command-line tool allows you to import passwords to pass from an extensive range of famous passwords manager.
+- Read the readme provided carefully.
+- Basically first export your chrome passwords to a csv file.
+- And then run the following command.
