@@ -2,8 +2,8 @@
 
 ## Things that need more detailing:
 
-- [] GPG key expiration.
-- [] More errors are yet to be written.
+- [ ] GPG key expiration.
+- [ ] More errors are yet to be written.
 
 ## Setup GNUPG
 
@@ -145,3 +145,14 @@ And now in ideal case you should be done. But yes it worst case a series of erro
 - Read the readme provided carefully.
 - Basically first export your chrome passwords to a csv file.
 - And then run the following command.
+- Install `pass-import` - `yay -S pass-import`.
+- And that's it run this command.
+  ```
+  pass import chrome /path/to/the/exported/csv/file
+  ```
+
+## Useful modules
+
+- `pass-update`
+- `pass-import`.
+  If you get a error installing it, something with the yaml folder in the python packages then just simply delete those folders which are causing the conflicts.
