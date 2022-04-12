@@ -70,12 +70,14 @@
     make build
     ./gopass-jsonapi help
     ```
-- So this will basically create two files - Manifest File(`/home/souptik/.config/google-chrome/NativeMessagingHosts/com.justwatch.gopass.json`) and Wrapper Script(`/home/souptik/.config/gopass/gopass_wrapper.sh`).
-- Now download the `gopassbridge` and build it.
- - Install node and npm and prettier `sudo npm -g i prettier`.
- - ```bash
-   https://github.com/gopasspw/gopassbridge.git
-   ```
+- So this will basically create two files - Manifest File(`/home/souptik/.config/google-chrome/NativeMessagingHosts/com.justwatch.gopass.json`) and Wrapper Script(`/home/souptik/.config/gopass/gopass_wrapper.sh`), and as you can see they are placed in proper locations and therefore you don't have to do anything more with `gopass-jsonapi`. And those two are hte only files which will be needed by `gopassbridge`. If you want you can delete this `gopass-jsonapi` folder also now.
+- Now download the `gopassbridge`.
+  - ```bash
+    https://github.com/gopasspw/gopassbridge.git
+    ```
+  - Install node and npm and prettier `sudo npm -g i prettier`, if you don't have these because they will be necessary during building the `gopassbridge`.
+  - Build it using `make build`.
+  - So, it will create a two folders, one named `chrome` and another named `firefox`. Now lastly in Google chrome use `Load unpacked` in the extensions page, and select the folder named `chrome`.
 
 And now in ideal case you should be done. But yes it worst case a series of errors will appear and you have to solve them one by one🧐.
 
