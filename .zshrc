@@ -128,6 +128,8 @@ export ANDROID_SDK_ROOT='/opt/android-sdk'
 
 export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin:$ANDROID_SDK_ROOT/tools/bin
 
+export PATH=$PATH:/home/souptik/.local/bin
+
 # TEMPORARY FOR NOW
 export PATH=$PATH:/home/souptik/wordpress/vip-go-cli/node_modules/.bin
 ###################
