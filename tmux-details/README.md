@@ -49,6 +49,10 @@ Paste this at the bottom of `.tmux.conf` file:
 
 - `tmux attach -t <name>`
 
+#### Kill all sessions/ restart the server -
+
+- `tmux kill-server`
+
 ### Windows:
 
 The window numbering by default will start form 0 just like index of an array.
@@ -96,4 +100,15 @@ Before starting you must mug-up your invoke key combination. You have to press t
 - Link to tmux-resurrect [git repository](https://github.com/tmux-plugins/tmux-resurrect).
 - Before doing this you must learn about configuring tmux, because we will use it a lot here.
 - So, before installing tmux-resurrect you must install `tpm` which is [`Tmux Plugin Manager`](https://github.com/tmux-plugins/tpm), because tmux-resurrect is nothing but just a tmux plugin.
-- 
+- Now after tpm plugins is installed just you can put `set -g @plugin 'tmux-plugins/tmux-resurrect` in `.tmux.conf` to get install a plugin. If you are in a tmux session then you might need to press `prefix I` to install the plugin.
+- Now you are ready to use `tmux-resurrect` let's learn how to use it.
+- While you are in a session press `prefix ctrl+s`, to save the session.
+- The files gets saved in `~/.tmux/resurrect`.
+- Now if you restart your system or use `tmux kill-server` then all your sessions will be gone.
+- So, now create a new session using `tmux`. And then when inside that session use `prefix ctrl+r` to restore the session(s).
+- Here's a confusing point read carefully.
+- When you restore the session as mentioned above, all your sessions will be restored from the stored files but you will ses only one.
+- To select a particular session, after the previous step use `prefix s`, to list all the sessions. Now from there select the session you want.
+- Same way create another new session and there first restore all the sessions and select one session.
+- Like this restore all the sessions.
+- Yes, this is a bit tedious process but we will later seek a better way.
