@@ -60,11 +60,13 @@ The window numbering by default will start form 0 just like index of an array.
 #### Create a new window -
 
 - `ctrl+b c`
+- For me `ctrl+a w`
 
 #### Rename a window -
 
 - While in the window you want to rename press the below key combination.
 - `ctrl+b ,`
+- For me `ctrl+b r`
 - Type the new name and press `enter key`.
 
 #### Close a window -
@@ -78,20 +80,24 @@ Before starting you must mug-up your invoke key combination. You have to press t
 #### Create new pane horizontally -
 
 - `ctrl+b %`
+- For me `ctrl+a |`
 
 #### Create new pane vertically -
 
 - `ctrl+b "`
+- For me `ctrl+a -`
 
 #### Switch focus between panes -
 
 - After pressing `ctrl+b` use arrow keys to move to that particular direction pane.
+  - For me `alt+arrow`.
 
 ----
 
 ## Configuring tmux
 
 - ["Making a tmux pretty and Usable"](https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/) - Blog
+- After configuring tmux you have to run `source ~/.tmux.conf`. But using my `.tmux.conf` you can do that in just by `prefix r`.
 
 ----
 
