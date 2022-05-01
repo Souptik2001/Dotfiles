@@ -53,6 +53,10 @@ Paste this at the bottom of `.tmux.conf` file:
 
 - `tmux kill-server`
 
+#### Switch session -
+
+- While you are in a session you can move to any other session by pressing `prefix s` and then just selecting the desired session from the list.
+
 ### Windows:
 
 The window numbering by default will start form 0 just like index of an array.
@@ -112,9 +116,4 @@ Before starting you must mug-up your invoke key combination. You have to press t
 - The files gets saved in `~/.tmux/resurrect`.
 - Now if you restart your system or use `tmux kill-server` then all your sessions will be gone.
 - So, now create a new session using `tmux`. And then when inside that session use `prefix ctrl+r` to restore the session(s).
-- Here's a confusing point read carefully.
-- When you restore the session as mentioned above, all your sessions will be restored from the stored files but you will ses only one.
-- To select a particular session, after the previous step use `prefix s`, to list all the sessions. Now from there select the session you want.
-- Same way create another new session and there first restore all the sessions and select one session.
-- Like this restore all the sessions.
-- Yes, this is a bit tedious process but we will later seek a better way.
+- And that's it now all the sessions are restored. But to restore the sessions you have to enter a new tmux session and press the key combination as written above.
