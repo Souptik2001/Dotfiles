@@ -1,3 +1,5 @@
+**This is just for reading purpose. The tmux setup is completely done using `.tmux/` and `.tmux.conf`. Only while in tmux you have to execute `prefix I` to install all the plugins required. This is an important step otherwise you will get no plugin functionality.**
+
 ## Install `tmux`
 
 - `pacman -S tmux`
