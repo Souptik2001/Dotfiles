@@ -1,6 +1,10 @@
-The entire PHPCS setup is already done in the `.config/composer` folder. You just have to add `~/.config/composer/vendor/bin/` in the PATH environment variable in `.zshrc` or `.bashrc`.
+Good news for you/me🫂, the entire PHPCS setup is already done in the `.config/composer` folder. You just have to add `~/.config/composer/vendor/bin/` in the PATH environment variable in `.zshrc` or `.bashrc`.
 
-Better have Composer installed before installing PHPCS.
+**But if you want to install it yourself again, then here you go :**
+
+You can do the entire process with or without Composer.
+
+*Installation with Composer -*
 
 First get PHPCS -
 ```
@@ -23,7 +27,7 @@ composer global require dealerdirect/phpcodesniffer-composer-installer \
 	phpcompatibility/phpcompatibility-wp:* --update-no-dev
 ```
 
-But if you want to do that manually without composer then you have to do something like this:
+*If you want to do that manually without composer then you have to do something like this -*
 
 ```
 cd ~/Documents
