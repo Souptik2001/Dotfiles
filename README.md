@@ -1,3 +1,7 @@
+My Dotfiles
+
+It contains the ingredients to make `computer.setup` a success.
+
 Install `gnome-keyring` using `pacman -S gnome-keyring`.
 
 Apply a system update:
