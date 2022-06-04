@@ -1,0 +1,1 @@
+For more information about GPG keys management look at - `password-store-setup/README.md`.
