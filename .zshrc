@@ -112,11 +112,12 @@ fi
 
 # Enable unicode encoding in tmux
 alias tmux="tmux -u"
-
+alias listpacman="pacman -Qe"
+alias listaur="pacman -Qm"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
 # use cowsay -l to see all animals
 # fortune | cowsay -f gnu | lolcat --freq=0.4
 #echo "Hey" | cowsay -f tux | lolcat --freq=0.4
@@ -134,12 +135,6 @@ export ANDROID_SDK_ROOT='/opt/android-sdk'
 export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin:$ANDROID_SDK_ROOT/tools/bin
 
 export PATH=$PATH:/home/souptik/.local/bin
-
-# TEMPORARY FOR NOW
-export PATH=$PATH:/home/souptik/wordpress/vip-go-cli/node_modules/.bin
-###################
-
-# export PATH="~/bin:$PATH"
 
 export EDITOR=vim
 
