@@ -1,5 +1,10 @@
 #! /bin/bash
 
+## Usage
+# ./create_gpg_qr <gpg_key_id_or_email>
+# A folder will be created in the current directory named gpg_qr_<gpg_key_id_or_email>
+##
+
 ## Export the private and public keys
 rm -r gpg_qr_"$1"
 mkdir gpg_qr_"$1"
@@ -22,12 +27,14 @@ mkdir ./gpg_qr_"$1"/public-gpg-splits-qr
 
 count=1
 for file in ./gpg_qr_"$1"/private-gpg-splits/privatesplitkey-??; do
-	<"$file" qrencode -s 3 -d 150 -o ./gpg_qr_"$1"/private-gpg-splits-qr/private-"$count".png
+	padded_count=$(printf '%02d\n' "$count")
+	<"$file" qrencode -s 3 -d 150 -o ./gpg_qr_"$1"/private-gpg-splits-qr/private-"$padded_count".png
 	((count+=1))
 done
 
 count=1
 for file in ./gpg_qr_"$1"/public-gpg-splits/publicsplitkey-??; do
-	<"$file" qrencode -s 3 -d 150 -o ./gpg_qr_"$1"/public-gpg-splits-qr/public-"$count".png
+	padded_count=$(printf '%02d\n' "$count")
+	<"$file" qrencode -s 3 -d 150 -o ./gpg_qr_"$1"/public-gpg-splits-qr/public-"$padded_count".png
 	((count+=1))
 done
