@@ -1,7 +1,7 @@
 #! /bin/bash
 
 ## Usage instruction
-# ./restore_gpg_qr.sh <path_to_folder_containing_qrs_of_public_key> <path_to_folder_containing_qrs_of_private_key>
+# ./restore_gpg_qr.sh <path_containing_qr_codes_in_proper_exported_format_using_create_gpg_qr_sh_script>
 ##
 
 # Remove the tmp folder if present.
@@ -15,7 +15,7 @@ mkdir tmp/private_splits
 
 # Decode the qr codes into text files.
 count=1
-for file in "$1"/*; do
+for file in "$1"/public-gpg-splits-qr/*; do
 	echo $file
 	padded_count=$(printf '%02d\n' "$count")
 	zbarimg "$file" --raw > tmp/public_splits/publicsplitkey-"$padded_count"
@@ -24,7 +24,7 @@ for file in "$1"/*; do
 done
 
 count=1
-for file in "$2"/*; do
+for file in "$1"/private-gpg-splits-qr/*; do
 	echo $file
 	padded_count=$(printf '%02d\n' "$count")
 	zbarimg "$file" --raw > tmp/private_splits/privatesplitkey-"$padded_count"
@@ -39,6 +39,13 @@ cat tmp/private_splits/privatesplitkey* > tmp/private.key
 # Import the keys.
 gpg --import tmp/public.key
 gpg --import tmp/private.key
+
+# Decode trust DB.
+zbarimg "$1"/trust-db/trust-db.png --raw > tmp/trust-db.txt
+sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' tmp/trust-db.txt
+
+# Import trust DB.
+gpg --import-ownertrust tmp/trust-db.txt
 
 # Cleanup - Remove the tmp folder.
 rm -r tmp
