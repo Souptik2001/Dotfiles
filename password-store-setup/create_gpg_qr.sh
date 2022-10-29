@@ -38,3 +38,21 @@ for file in ./gpg_qr_"$1"/public-gpg-splits/publicsplitkey-??; do
 	<"$file" qrencode -s 3 -d 150 -o ./gpg_qr_"$1"/public-gpg-splits-qr/public-"$padded_count".png
 	((count+=1))
 done
+
+# Backup trust DB
+
+mkdir ./gpg_qr_"$1"/trust-db
+
+gpg --export-ownertrust > ./gpg_qr_"$1"/trust-db/trust-db.txt
+
+<./gpg_qr_"$1"/trust-db/trust-db.txt qrencode -s 3 -d 150 -o ./gpg_qr_"$1"/trust-db/trust-db.png
+
+rm ./gpg_qr_"$1"/trust-db/trust-db.txt
+
+# Cleanup - Remove everything other than just the QR codes.
+
+rm ./gpg_qr_"$1"/private.key
+rm ./gpg_qr_"$1"/public.key
+
+rm -r ./gpg_qr_"$1"/private-gpg-splits
+rm -r ./gpg_qr_"$1"/public-gpg-splits
