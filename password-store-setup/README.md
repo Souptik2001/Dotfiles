@@ -35,6 +35,11 @@
   - Next enter real name.
   - Enter email address.
 
+- Or you can easily create the GPG key using the easy config file provided using -
+```
+gpg --batch --gen-key gpg-key-conf
+```
+
 - Now let's encrypt a file:
   - `gpg -e -r recipient_userid_or_email textfile`.
   - So, the output will be in a file named `prevFileName.gpg`.
@@ -46,9 +51,7 @@
 - Renew GPG keys:
   - [Renew GPG keys](https://gist.github.com/krisleech/760213ed287ea9da85521c7c9aac1df0)
 
-## Setup auto keys refresh
-
-### Setup GUI input library
+## Setup GUI input library
 
 - [Checkout this discussion](https://unix.stackexchange.com/questions/603682/bash-script-request-input-via-gui)
 - Install `zenity` package -> `sudo pacman -S zenity`
@@ -79,7 +82,31 @@
   - Build it using `make build`.
   - So, it will create a two folders, one named `chrome` and another named `firefox`. Now lastly in Google chrome use `Load unpacked` in the extensions page, and select the folder named `chrome`.
 
-And now in ideal case you should be done. But yes it worst case a series of errors will appear and you have to solve them one by one🧐.
+And now in ideal case you should be done. But yes its worst case a series of errors will appear and you have to solve them one by one🧐.
+
+## Re-encrypt password store
+
+You might sometime want to use a new GPG key pair. So, for this you need to re-encrypt all the existing passwords using the new key.
+Fortunately `pass` made this task very easy for us.
+
+- First create a new GPG key using -
+```
+gpg --batch --gen-key gpg-key-conf
+```
+- Now be sure to backup your new keys using -
+```
+./create_gpg_qr.sh <key_id>
+```
+- And just use the `init` command of pass and it will automatically re-encrypt all passwords -
+```
+pass init <key_id>
+```
+- Optionally you can delete your old key(if you don't have any other dependencies) -
+```
+gpg --delete-secret-keys <key_id>
+gpg --delete-keys <key_id>
+```
+
 
 ## Errors with gopassbridge and gopass-jsonapi
 
@@ -135,6 +162,7 @@ And now in ideal case you should be done. But yes it worst case a series of erro
 - Now let's restore the backup.
 - Again simple two commands - `gpg --import [path_to_public_key]` and `gpg --import [path_to_private_key]`.
 - But importing the public key is not enough. You might get an error saying = `unusable public key`.
+- And yes again if you don't want to do it manually then you can use the restore script - `./restore_gpg_qr.sh <path_containing_qr_codes_in_proper_exported_format_using_create_gpg_qr_sh_script>`. **The path you provided must be in the format the backup script generate. So, its best to use those two together.**
 
 [This article is very helpful demonstrating exporting and importing public and private keys.](https://linuxhint.com/export-import-keys-with-gpg/)
 
