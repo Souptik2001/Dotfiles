@@ -52,7 +52,7 @@ rm ./gpg_qr_"$1"/trust-db/trust-db.txt
 # Cleanup - Remove everything other than just the QR codes.
 
 rm ./gpg_qr_"$1"/private.key
-rm ./gpg_qr_"$1"/public.key
+# Only not removing the public key as that might be needed somewhere.
 
 rm -r ./gpg_qr_"$1"/private-gpg-splits
 rm -r ./gpg_qr_"$1"/public-gpg-splits
