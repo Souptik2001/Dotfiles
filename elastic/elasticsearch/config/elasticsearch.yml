@@ -10,4 +10,9 @@ network.host: 0.0.0.0
 #
 xpack.license.self_generated.type: basic
 xpack.security.enabled: false
-xpack.monitoring.collection.enabled: true
+# xpack.monitoring.collection.enabled: true
+xpack.monitoring.collection.enabled: false
+cluster.routing.allocation.disk.watermark.low: "2gb"
+cluster.routing.allocation.disk.watermark.high: "1gb"
+cluster.routing.allocation.disk.watermark.flood_stage: "500mb"
+cluster.info.update.interval: "1m"
