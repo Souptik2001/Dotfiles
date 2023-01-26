@@ -115,6 +115,9 @@ alias tmux="tmux -u"
 alias listpacman="pacman -Qe"
 alias listaur="pacman -Qm"
 
+# Set external monitor above the in-built monitor
+alias setmonitor="xrandr --output "eDP1" --auto --output "HDMI1" --above "eDP1""
+
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
@@ -137,7 +140,7 @@ export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin:$ANDROID_SDK_R
 export PATH=$PATH:/home/souptik/.local/bin
 
 export EDITOR=vim
-
+# export VISUAL=code
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
