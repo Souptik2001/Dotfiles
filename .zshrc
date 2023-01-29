@@ -118,6 +118,9 @@ alias listaur="pacman -Qm"
 # Set external monitor above the in-built monitor
 alias setmonitor="xrandr --output "eDP1" --auto --output "HDMI1" --above "eDP1""
 
+# Media backup to immich(self-hosted)
+alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --album"
+
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
