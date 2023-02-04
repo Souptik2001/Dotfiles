@@ -26,9 +26,11 @@
   gpg --list-keys
   ```
 - Now let's create our GPG key:
+
   ```bash
   gpg --full-generate-key
   ```
+
   - Select `RSA and RSA encryption`.
   - Keysize - `4096`.
   - Next select expiration time for the key. `0` if you want no expiration.
@@ -36,6 +38,7 @@
   - Enter email address.
 
 - Or you can easily create the GPG key using the easy config file provided using -
+
 ```
 gpg --batch --gen-key gpg-key-conf
 ```
@@ -44,6 +47,7 @@ gpg --batch --gen-key gpg-key-conf
   - `gpg -e -r recipient_userid_or_email textfile`.
   - So, the output will be in a file named `prevFileName.gpg`.
 - Now let's decrypth the file:
+
   - `gpg -o output_file_name file_to_decrypt`.
 
 - Using the commands without a password prompt:
@@ -90,23 +94,35 @@ You might sometime want to use a new GPG key pair. So, for this you need to re-e
 Fortunately `pass` made this task very easy for us.
 
 - First create a new GPG key using -
+
 ```
 gpg --batch --gen-key gpg-key-conf
 ```
+
 - Now be sure to backup your new keys using -
+
 ```
 ./create_gpg_qr.sh <key_id>
 ```
+
 - And just use the `init` command of pass and it will automatically re-encrypt all passwords -
+
 ```
 pass init <key_id>
 ```
+
 - Optionally you can delete your old key(if you don't have any other dependencies) -
+
 ```
 gpg --delete-secret-keys <key_id>
 gpg --delete-keys <key_id>
 ```
 
+## Password store internals
+
+- By default the "Password Store" stores all the passwords at `~/.password-store`.
+- The folder basically is a git repository.
+- In that folder only there is a file named `.gpg-id` where it stores the ID of the GPG key, which is to be used to encrypt-decrypt passwords.
 
 ## Errors with gopassbridge and gopass-jsonapi
 
@@ -114,23 +130,30 @@ gpg --delete-keys <key_id>
   - In the Manifest file created during setting up gopass-jsonapi above, in the allowed origins write your chrome extension ID.
   - [Discussion](https://stackoverflow.com/questions/20216224/chrome-native-messaging-error-access-to-the-specified-native-messaging-host-i)
 - `"Failed to decrypt"`
+
   - This happens because the GPG key needs to have the passpharse to use the private key.
   - So, if the passphrase is not cached it is not able to take the passphrase input.
   - Ok, so understand the solution very carefully.
   - So, basically you are interacting with the `gpg-agent` daemon to interact with the main gpg program. Now by default (i.e if you don't specify a `~/.gnupg/gpg-agent.conf` file) it uses the takes your passphrase in the terminal only(I don't remember the name exactly). But that is program is for some reason not so much usable by other programs. So, you need to provide a pin-entry program.
   - In my arch (Endeveour OS) I already have a preinstalled pin-entry program called `pinentry-qt`🤯. But if you don't have you can install [it](https://archlinux.org/packages/core/x86_64/pinentry/) with `sudo pacman -S pinentry-qt`.
   - Now we just need to tell `gpg-agent` to use this pin-entry program. And we can do this by entering this to our `~/.gnupg/gpg-agent.conf` file. Append this line in the file(if you don't have one then create):
+
   ```conf
   pinentry-program /abs/path/to/your/pinentry-program
   ```
+
   Or just execute this command:
+
   ```bash
   echo "pinentry-program $(which your_pinentry_program)" >> ~/.gnupg/gpg-agent.conf
   ```
+
   And then just kill the gpg-agent program:
+
   ```bash
   killall gpg-agent
   ```
+
   The `gpg-agent` will be started by the gopass-jsonapi itself you don't have to worry.
 
 - `"Copy to clipboard failed"`
@@ -166,7 +189,6 @@ gpg --delete-keys <key_id>
 
 [This article is very helpful demonstrating exporting and importing public and private keys.](https://linuxhint.com/export-import-keys-with-gpg/)
 
-
 ## Migrating passwords from chrome to password-store
 
 - This is your [helper](https://github.com/roddhjav/pass-import).
@@ -180,6 +202,11 @@ gpg --delete-keys <key_id>
   ```
   pass import chrome /path/to/the/exported/csv/file
   ```
+
+## Exporting and re-importing the passwords
+
+Previously you learned how to import passwords from chrome and import them into password-store. But now let's see how you can export your password store's passwords and then re-import them.
+_To Do.._
 
 ## Useful modules
 
