@@ -121,6 +121,9 @@ alias setmonitor="xrandr --output "eDP1" --auto --output "HDMI1" --above "eDP1""
 # Media backup to immich(self-hosted)
 alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --album"
 
+# Some commands for help
+alias help-ssh-keygen="echo \"ssh-keygen -f ~/.ssh/keys/git_key/git_key -t ed25519 -C \"Github Personal Computer key.\"\""
+
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
