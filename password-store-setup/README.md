@@ -170,7 +170,7 @@ gpg --delete-keys <key_id>
 - We will first split the file using the `split` command.
 - Then we will convert the files in qr codes using the `qrencode` command.
 - If you don't want to manually run the commands I wrote a bash script which you can use like `./create_gpg_qr.sh <userID_or_email>`.
-- Same way you can also convert your ssh keys into QR codes using the other bash script `./create_ssh_qr.sh <key1> <key2>`.
+- Same way you can also convert your ssh keys into QR codes using the other bash script `./create_ssh_qr.sh <path_to_private_key> <path_to_public_key>`.
 - And now arrange those QR codes in a A4 sheet and take a print out of that and put it with your very important documents like birth-certificate of something. So, that even if the files are deleted from your computer you will be able to scan those QR and get your GPG key back.
 
 ## Let's utilize the backup🧐
