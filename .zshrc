@@ -124,6 +124,10 @@ alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-
 # Some commands for help
 alias help-ssh-keygen="echo \"ssh-keygen -f ~/.ssh/keys/git_key/git_key -t ed25519 -C \"Github Personal Computer key.\"\""
 
+# Lando shortcuts
+alias trust-lando="sudo trust anchor ~/.lando/certs/lndo.site.pem && sudo trust anchor ~/.lando/certs/lndo.site.crt"
+alias distrust-lando="sudo trust anchor --remove ~/.lando/certs/lndo.site.pem && sudo trust anchor --remove ~/.lando/certs/lndo.site.crt"
+
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
