@@ -170,7 +170,7 @@ gpg --delete-keys <key_id>
 - We will first split the file using the `split` command.
 - Then we will convert the files in qr codes using the `qrencode` command.
 - If you don't want to manually run the commands I wrote a bash script which you can use like `./create_gpg_qr.sh <userID_or_email>`.
-- Same way you can also convert your ssh keys into QR codes using the other bash script `./create_ssh_qr.sh <path_to_private_key> <path_to_public_key>`.
+- Same way you can also convert your ssh keys into QR codes using the other bash script `./create_ssh_qr.sh <path_to_folder> <key_name>`.
 - And now arrange those QR codes in a A4 sheet and take a print out of that and put it with your very important documents like birth-certificate of something. So, that even if the files are deleted from your computer you will be able to scan those QR and get your GPG key back.
 
 ## Let's utilize the backup🧐
@@ -186,6 +186,7 @@ gpg --delete-keys <key_id>
 - Again simple two commands - `gpg --import [path_to_public_key]` and `gpg --import [path_to_private_key]`.
 - But importing the public key is not enough. You might get an error saying = `unusable public key`.
 - And yes again if you don't want to do it manually then you can use the restore script - `./restore_gpg_qr.sh <path_containing_qr_codes_in_proper_exported_format_using_create_gpg_qr_sh_script>`. **The path you provided must be in the format the backup script generate. So, its best to use those two together.**
+- Similar way you can restore your SSH keys using - `./restore_ssh_qr.sh <path_containing_qr_codes_in_proper_exported_format_using_create_ssh_qr_sh_script> <key_name>`. **The path you provided must be in the format the backup script generate. So, its best to use those two together.**
 
 [This article is very helpful demonstrating exporting and importing public and private keys.](https://linuxhint.com/export-import-keys-with-gpg/)
 
