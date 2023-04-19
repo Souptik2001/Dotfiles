@@ -114,12 +114,13 @@ fi
 alias tmux="tmux -u"
 alias listpacman="pacman -Qe"
 alias listaur="pacman -Qm"
+alias cleanpacman="sudo paccache -ruk0 && sudo pacman -Scc"
 
 # Set external monitor above the in-built monitor
 alias setmonitor="xrandr --output "eDP1" --auto --output "HDMI1" --above "eDP1""
 
 # Media backup to immich(self-hosted)
-alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --album"
+alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --recursive --album"
 
 # Some commands for help
 alias help-ssh-keygen="echo \"ssh-keygen -f ~/.ssh/keys/git_key/git_key -t ed25519 -C \"Github Personal Computer key.\"\""
@@ -131,6 +132,27 @@ alias distrust-lando="sudo trust anchor --remove ~/.lando/certs/lndo.site.pem &&
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+
+declare -A pomo_options
+pomo_options["Work"]="1"
+pomo_options["Break"]="1"
+
+sess () {
+  if [ -z "$1" ]  || [ -z "$2" ]; then
+	echo 'Usage: sess <any_string> <any_integer_duration>'
+  else
+	val=$1
+	duration=$2
+	echo $val | lolcat
+	timer ${duration}m -n $val
+	spd-say --voice-type=female2 "'$duration' minutes '$val' session done"
+	notify-send -u critical -i face-yawn "Hey hey! 👋" "'$duration' minutes '$val' session done."
+  fi
+}
+
+alias wo="sess 'Work'"
+alias br="sess 'Break'"
+
 # use cowsay -l to see all animals
 # fortune | cowsay -f gnu | lolcat --freq=0.4
 #echo "Hey" | cowsay -f tux | lolcat --freq=0.4
@@ -150,6 +172,8 @@ export PATH=$PATH:/usr/local/go/bin:~/.config/composer/vendor/bin:$ANDROID_SDK_R
 export PATH=$PATH:/home/souptik/.local/bin
 
 export EDITOR=vim
+
+export BROWSER=google-chrome-stable
 # export VISUAL=code
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
