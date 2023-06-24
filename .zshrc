@@ -115,12 +115,17 @@ alias tmux="tmux -u"
 alias listpacman="pacman -Qe"
 alias listaur="pacman -Qm"
 alias cleanpacman="sudo paccache -ruk0 && sudo pacman -Scc"
+alias cleanyay="yay -Scc"
 
 # Set external monitor above the in-built monitor
 alias setmonitor="xrandr --output "eDP1" --auto --output "HDMI1" --above "eDP1""
 
+## Reason for commenting out - is very inconvinient to use and also does ask for password for every session openning
 # Media backup to immich(self-hosted)
-alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --recursive --album"
+# alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --recursive --album"
+
+# Command for trusting a SSL certificate. Usage - cert-trust /path/to/test.cert
+alias cert-trust="trust anchor --store"
 
 # Some commands for help
 alias help-ssh-keygen="echo \"ssh-keygen -f ~/.ssh/keys/git_key/git_key -t ed25519 -C \"Github Personal Computer key.\"\""
@@ -178,3 +183,4 @@ export BROWSER=google-chrome-stable
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /usr/share/nvm/init-nvm.sh
