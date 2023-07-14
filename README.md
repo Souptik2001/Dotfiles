@@ -1,31 +1,11 @@
-My Dotfiles
+## My Dotfiles
 
 It contains the ingredients to make `computer.setup` a success.
 
-Install `gnome-keyring` using `pacman -S gnome-keyring`.
+Using Arch linux? Here is your [All in one](https://kaosx.us/docs/pacman/) package for pacman commands.
 
-Apply a system update:
-``
-
-Install Pacman packages:
-`pacman -S <package_name>`
-
-Remove Pacman packages:
-`pacman -R <package_name>`
-
-Update Pacman packages:
-``
-
-Install Pacman packages:
-``
-
-Remove Pacman packages:
-``
-
-Update Pacman packages:
-``
-
-[All in one](https://kaosx.us/docs/pacman/)
-
-Update aur packages:
-`yay -Syu`
+**Important point while cloning this repo:**
+Make sure to clone all the submodules used in this repo, using -
+```bash
+git clone --recurse-submodules <repo_url>
+```
