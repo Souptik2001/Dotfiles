@@ -109,34 +109,43 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+## ---- Utility commands ----
 
 # Enable unicode encoding in tmux
 alias tmux="tmux -u"
+
+# List packages installed.
 alias listpacman="pacman -Qe"
-alias listaur="pacman -Qm"
+alias listyay="pacman -Qm"
+
+# Some commands to clean stuff.
 alias cleanpacman="sudo paccache -ruk0 && sudo pacman -Scc"
 alias cleanyay="yay -Scc"
+alias cleandocker="docker image prune -af && docker volume prune -f"
 
 # Set external monitor above the in-built monitor
 alias setmonitor="xrandr --output "eDP1" --auto --output "HDMI1" --above "eDP1""
 
-## Reason for commenting out - is very inconvinient to use and also does ask for password for every session openning
+## Reason for commenting out - is very inconvinient to use and also does ask for password for every session openning -- Instead now using my own immich npm package.
 # Media backup to immich(self-hosted)
 # alias immich="docker run -it --rm -v '$(pwd)':/import ghcr.io/immich-app/immich-cli:latest upload --key $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/key) --server $(pass key/immich/immich.taptappers.club/souptikdatta2001@gmail.com/server) --recursive --album"
 
-# Command for trusting a SSL certificate. Usage - cert-trust /path/to/test.cert
+# Command for trusting a SSL certificate -- Usage - cert-trust /path/to/test.cert
 alias cert-trust="trust anchor --store"
 
-# Some commands for help
+# Some commands for help.
 alias help-ssh-keygen="echo \"ssh-keygen -f ~/.ssh/keys/git_key/git_key -t ed25519 -C \"Github Personal Computer key.\"\""
 
 # Lando shortcuts
 alias trust-lando="sudo trust anchor ~/.lando/certs/lndo.site.pem && sudo trust anchor ~/.lando/certs/lndo.site.crt"
 alias distrust-lando="sudo trust anchor --remove ~/.lando/certs/lndo.site.pem && sudo trust anchor --remove ~/.lando/certs/lndo.site.crt"
 
-# Example aliases
+# Open shell configs very fast.
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+
+
+## ---- Utility commands end ----
 
 declare -A pomo_options
 pomo_options["Work"]="1"
