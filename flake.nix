@@ -31,7 +31,7 @@
             home-manager.users.souptik = {
               imports = [ ./hosts/souptik_hp/home.nix ];
               _module.args.self = self;
-              _module.args.host = "souptik_hp";
+              _module.args.host = "souptik";
               _module.args.inputs = inputs;
             };
           }

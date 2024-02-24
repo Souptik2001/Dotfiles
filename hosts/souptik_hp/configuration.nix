@@ -124,7 +124,7 @@
       git
       vim
     ];
-    shell = pkgs.fish;
+    # shell = pkgs.fish;
   };
 
   # Allow unfree packages
