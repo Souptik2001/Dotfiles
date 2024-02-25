@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-	# Do this every time home-manager is activated
+	# Do this every time home-manager is activated.
 	home.activation = {
 		passwordStore = ''
 		PW_DIR=${config.home.homeDirectory}/.password-store
