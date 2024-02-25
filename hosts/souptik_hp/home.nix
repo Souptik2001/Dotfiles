@@ -45,6 +45,7 @@
       docker
       gnupg
       pinentry-gnome
+      mariadb
 
       # NodeJS. We have installed nodejs_21 here. NVM is not availble with it, and shouldn't be used also. As nix is itself a version manager.
       # Ideally each project should have a nodejs version specified in its .nix file.
