@@ -92,7 +92,7 @@
   # Enable bluetooth.
   hardware.bluetooth.enable = true;
 
-  # What is this?
+  # This is for making the GNUPG pinentry program work, somehow
   services.pcscd.enable = true;
 
   # Enable sound with pipewire.
