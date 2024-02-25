@@ -5,21 +5,18 @@
   ];
 
   home = {
-    stateVersion = "23.05";
+    stateVersion = "23.11";
 
-	  # User name and home directory.
+    # User name and home directory.
     username = "souptik";
     homeDirectory = "/home/souptik";
 
-	  # Environment variables for this user.
+    # Environment variables for this user.
     sessionVariables = {
       EDITOR = "vim";
-    }
+    };
 
     # Link files into the home directory from nix store.
-    file = {
-
-    }
 
     # Packages for this user.
     packages = with pkgs; [
@@ -46,6 +43,7 @@
       zoom-us
       nixpkgs-fmt
       docker
+      gnupg
 
       # NodeJS. We have installed nodejs_21 here. NVM is not availble with it, and shouldn't be used also. As nix is itself a version manager.
       # Ideally each project should have a nodejs version specified in its .nix file.

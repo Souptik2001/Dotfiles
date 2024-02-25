@@ -3,7 +3,7 @@
     ./git
     ./tmux
     # ./zsh
-    ./gnupg
+    # ./gnupg
     ./ssh
     ./pass
   ];

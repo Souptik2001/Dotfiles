@@ -21,9 +21,9 @@
   # boot.initrd.kernelModules = [ "amdgpu" ];
 
   # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  # boot.initrd.secrets = {
+  #   "/crypto_keyfile.bin" = null;
+  # };
 
   # # Enable swap on luks
   # boot.initrd.luks.devices."luks-64e3ad83-3d1c-4a12-ba7e-c58857ca6ae7".device = "/dev/disk/by-uuid/64e3ad83-3d1c-4a12-ba7e-c58857ca6ae7";
@@ -163,7 +163,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 #   programs.fish.enable = true;
   fonts = {
