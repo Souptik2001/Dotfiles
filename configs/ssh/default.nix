@@ -35,8 +35,10 @@
 	home.activation = {
 		# We have to run this at the beginning, therefore prefixing it with `a`.
 		a_sshKeysSetup = ''
-		cp -r /tmp/nix-secrets/ssh/keys/ ~/.ssh/keys/
-		chmod 700 ~/.ssh/keys/ -R
+		if [ -d ~/nix-secrets/ssh/keys/ ]; then
+			cp -r ~/nix-secrets/ssh/keys/ ~/.ssh/keys/
+			chmod 700 ~/.ssh/keys/ -R
+		fi
 		'';
 	};
 }
