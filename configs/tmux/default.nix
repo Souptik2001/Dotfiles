@@ -18,7 +18,7 @@
     ];
     extraConfig = ''
 		# Set default tmux shell as zsh
-		set-option -g default-shell /bin/zsh
+		# set-option -g default-shell /bin/bash
 
 		# tmux display things in 256 colors
 		set -g default-terminal "screen-256color"

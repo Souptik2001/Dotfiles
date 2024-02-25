@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
   # Import any modules here.
@@ -38,10 +38,16 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # Configure nameservers.
   # Put any custom nameservers here - like I have for NextDNS.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+
+  networking.extraHosts =
+    ''
+      127.0.0.1 local.enchantingtravels.com local.ymtvacations.com
+    '';
 
   nix.settings = {
     # this is required because flakes hasn't graduated into a stable feature yet
