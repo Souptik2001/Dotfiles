@@ -46,7 +46,7 @@
 
   networking.extraHosts =
     ''
-      127.0.0.1 local.enchantingtravels.com local.ymtvacations.com
+      127.0.0.1 local.enchantingtravels.com local.ymtvacations.com local.europeexpress.com
     '';
 
   nix.settings = {
