@@ -32,13 +32,14 @@
 	};
 
 	# Do this every time home-manager is activated.
-	home.activation = {
-		# We have to run this at the beginning, therefore prefixing it with `a`.
-		a_sshKeysSetup = ''
-		if [ -d ~/nix-secrets/ssh/keys/ ]; then
-			cp -r ~/nix-secrets/ssh/keys/ ~/.ssh/keys/
-			chmod 700 ~/.ssh/keys/ -R
-		fi
-		'';
-	};
+	# Edit - Let's do this manually and let's not automate this thing.
+	# home.activation = {
+	# 	# We have to run this at the beginning, therefore prefixing it with `a`.
+	# 	a_sshKeysSetup = ''
+	# 	if [ -d ~/nix-secrets/ssh/keys/ ]; then
+	# 		cp -r ~/nix-secrets/ssh/keys/ ~/.ssh/keys/
+	# 		chmod 700 ~/.ssh/keys/ -R
+	# 	fi
+	# 	'';
+	# };
 }

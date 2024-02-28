@@ -14,6 +14,7 @@
     # Environment variables for this user.
     sessionVariables = {
       EDITOR = "vim";
+      QT_QPA_PLATFORM = "wayland";
     };
 
     # Link files into the home directory from nix store.
@@ -46,6 +47,7 @@
       gnupg
       pinentry-gnome
       mariadb
+      filezilla
 
       # NodeJS. We have installed nodejs_21 here. NVM is not availble with it, and shouldn't be used also. As nix is itself a version manager.
       # Ideally each project should have a nodejs version specified in its .nix file.
@@ -65,8 +67,8 @@
       playerctl
 
       # PHP related
-      php83
-      php83Packages.composer
+      php81
+      php81Packages.composer
 
       #Slack
       slack
