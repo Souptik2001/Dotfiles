@@ -34,8 +34,6 @@
 		### Color & Style Settings ###
 		##############################
 
-		source ~/.tmux/base16.sh
-
 		# remap prefix from 'C-b' to 'C-a'
 		unbind C-b
 		set-option -g prefix C-a

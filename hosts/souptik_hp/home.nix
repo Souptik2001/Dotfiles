@@ -18,6 +18,12 @@
     };
 
     # Link files into the home directory from nix store.
+    file = {
+      "wallpaper.jpg" = {
+        source = ../../wallpaper.jpg;
+        target = ".wallpaper.jpg";
+      };
+    };
 
     # Packages for this user.
     packages = with pkgs; [

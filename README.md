@@ -1,14 +1,12 @@
-## My Dotfiles
-
 **😛🙈 Not at all copied from - https://github.com/rounakdatta/dotfiles**
 
-Here is how to use it -
+Steps to use -
 
-**Before formatting your system -**
+**Before formatting the system -**
 
 - Copy `.ssh/keys` and entire `.gnugp` folder to a backup (pendrive maybe?)
 
-**After formatting your system -**
+**After formatting the system -**
 
 - Setup a fresh NixOS installation.
 - Create a folder named `~/.ssh/`.
@@ -24,4 +22,4 @@ Here is how to use it -
 - Run `sudo nixos-rebuild switch --flake .#souptik_hp`
 - Remove `~/nix-secrets`.
 - Restart the system.
-- Ready!
+- Done.

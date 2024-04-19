@@ -11,6 +11,8 @@
       # To make sure `home-manager` doesn't use different version of `nixpkgs`, say `home-manager` to follow the nixpkgs module version.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs: {

@@ -11,6 +11,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Uncomment this to use hyperland, but there's lot of bugs. Also comment line 88, 89.
+      # ./hyperland.nix
     ];
 
   # Bootloader.
@@ -40,13 +42,18 @@
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
+  environment.sessionVariables = {
+    EDITOR = "vim";
+    QT_QPA_PLATFORM = "wayland";
+  };
+
   # Configure nameservers.
   # Put any custom nameservers here - like I have for NextDNS.
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   networking.extraHosts =
     ''
-      127.0.0.1 local.enchantingtravels.com local.ymtvacations.com local.europeexpress.com
+      127.0.0.1 local.decoupledwp.com local.enchantingtravels.com local.ymtvacations.com local.europeexpress.com
     '';
 
   nix.settings = {
@@ -77,12 +84,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # # Enable the GNOME Desktop Environment.
+  # # Enable the GNOME Desktop Environment -- disabling as we will be no longer use GNOME. -- enabling it back as we will be using GNOME.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # # Configure keymap in X11
   services.xserver = {
@@ -97,6 +104,9 @@
 
   # Enable bluetooth.
   hardware.bluetooth.enable = true;
+
+  # So that we can get a bluetooth GUI.
+  services.blueman.enable = true;
 
   # This is for making the GNUPG pinentry program work, somehow
   services.pcscd.enable = true;
@@ -130,8 +140,18 @@
       git
       vim
     ];
-    # shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
+
+  programs.zsh.interactiveShellInit = ''
+		set NIXPKGS_ALLOW_UNFREE 1
+
+		# although we've set the NixOS-level setting, remember that Chrome would require this `TZ` envvar
+		# otherwise, it defaults to UTC
+		set TZ Asia/Kolkata
+		'';
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -140,7 +160,7 @@
   # $ nix search wget
   # None is instealled in system profile, because we prefer everything in user profile!
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];
 
@@ -175,13 +195,10 @@
   fonts = {
     packages = with pkgs; [
       noto-fonts
+      font-awesome
       noto-fonts-cjk
       noto-fonts-emoji
       noto-fonts-extra
-      lohit-fonts.devanagari
-      lohit-fonts.bengali
-      google-fonts
-      corefonts
     ];
   };
 
